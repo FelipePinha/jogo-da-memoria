@@ -39,4 +39,18 @@ function handleClick() {
     }
 }
 
-function checkMath() {}
+function checkMath() {
+    if(openCards[0].innerHTML === openCards[1].innerHTML) {
+        openCards[0].classList.add('box-match')
+        openCards[1].classList.add('box-match')
+    } else {
+        openCards[0].classList.remove('box-open')
+        openCards[1].classList.remove('box-open')
+    }
+
+    openCards = []
+
+    if(document.querySelectorAll('.box-match').length === emojis.length) {
+        alert('você venceu!!')
+    }
+}
