@@ -17,7 +17,7 @@ const emojis = [
     "❤️"
 ]
 let openCards = []
-let tries = 0
+let errors = 0
 
 let shuffleEmojis = emojis.sort(() => (Math.random() > 0.5) ? 2 : -1)
 
@@ -48,12 +48,12 @@ function checkMath() {
     } else {
         openCards[0].classList.remove('box-open')
         openCards[1].classList.remove('box-open')
-        tries++
+        errors++
     }
 
     openCards = []
 
     if(document.querySelectorAll('.box-match').length === emojis.length) {
-        alert(`você venceu \n erros: ${tries}`)
+        alert(`você venceu \n erros: ${errors}`)
     }
 }
