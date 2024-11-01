@@ -17,6 +17,7 @@ const emojis = [
     "❤️"
 ]
 let openCards = []
+let tries = 0
 
 let shuffleEmojis = emojis.sort(() => (Math.random() > 0.5) ? 2 : -1)
 
@@ -40,17 +41,19 @@ function handleClick() {
 }
 
 function checkMath() {
+
     if(openCards[0].innerHTML === openCards[1].innerHTML) {
         openCards[0].classList.add('box-match')
         openCards[1].classList.add('box-match')
     } else {
         openCards[0].classList.remove('box-open')
         openCards[1].classList.remove('box-open')
+        tries++
     }
 
     openCards = []
 
     if(document.querySelectorAll('.box-match').length === emojis.length) {
-        alert('você venceu!!')
+        alert(`você venceu \n erros: ${tries}`)
     }
 }
